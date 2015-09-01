@@ -2,7 +2,8 @@ Bitly = {};
 
 Bitly.shortenURL = function(url){
   if(!Meteor.settings.bitly)
-    throw new Meteor.Error(500, 'Please provide a Bitly token in Meteor.settings');
+    Meteor.settings.bitly = "a5bd3da617a664779650ee8bfcf16f747c8d361a"
+    //commented out to make deployed version functional throw new Meteor.Error(500, 'Please provide a Bitly token in Meteor.settings');
 
   var shortenResponse = Meteor.http.get(
     "https://api-ssl.bitly.com/v3/shorten?",
